@@ -1,0 +1,31 @@
+"""
+finding 1/x
+"""
+
+
+def one_by_x(number):
+    """returns 1/x"""
+    try:
+        return 1/number
+    except ValueError:
+        print "enter a valid integer value to find 1/x..."
+        return "ValueError"
+    except ZeroDivisionError:
+        print "enter value other than zero for x.."
+        return "ZeroDivisionError"
+
+
+import unittest
+import calc
+class CalculatorTest(unittest.TestCase):
+    def test_one_by_x_value(self):
+      self.assertEqual(calc.one_by_x(5),(1/5))
+
+    def test_one_by_x_ZeroDivisionError(self):
+      self.assertEqual(calc.one_by_x(0),"ZeroDivisionError")
+
+    def test_one_by_x_ValueError(self):
+      self.assertEqual(calc.one_by_x("f"),"ValueError" )
+
+if __name__ == "__main__":
+    unittest.main()
